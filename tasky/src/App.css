@@ -37,7 +37,8 @@
     }
 }
 
-h1 {
+
+/* h1 {
     text-align: center;
     background-color: grey;
     color: white;
@@ -45,17 +46,19 @@ h1 {
     margin: 8px 0;
     border: none;
     border-radius: 4px;
-}
+} */
 
-div {
+
+/* div {
     padding: 20px;
 }
 
 .container {
     text-align: center;
-}
+} */
 
-.card {
+
+/* .card {
     display: inline-block;
     vertical-align: top;
     font-family: system-ui;
@@ -100,9 +103,10 @@ button {
     bottom: 5px;
     right: 5px;
     color: red;
-}
+} */
 
-input[type=text],
+
+/* input[type=text],
 input[type=date] {
     width: 100%;
     padding: 12px 20px;
@@ -130,4 +134,4 @@ input[type=submit]:hover {
 
 form {
     text-align: left;
-}
+} */
