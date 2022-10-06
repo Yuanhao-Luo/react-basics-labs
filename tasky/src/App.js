@@ -10,18 +10,20 @@ import { v4 as uuidv4 } from 'uuid';
 function App() {
   const [ taskState, setTaskState ] = useState({
     tasks: [
-      { id: 1, title:"Dishes", description: "Empty dishwasher", deadline: "Today", done: false },
-      { id: 2, title: "Laundry", description: "Fold clothes and put away", deadline: "Tomorrow", done: false },
-      { id: 3, title: "Tidy up", deadline: "Today", done: false },
-      { id: 4, title: "Cook", deadline: "Today"},
-      { id: 5, title: "Boil Water", deadline: "Today"}
+      { id: 1, title:"Dishes", description: "Empty dishwasher", deadline: "Today", done: false, priority: "High", priority_color: "error" },
+      { id: 2, title: "Laundry", description: "Fold clothes and put away", deadline: "Tomorrow", done: false, priority: "Medium", priority_color: "warning" },
+      { id: 3, title: "Tidy up", deadline: "Today", done: false, priority: "Low", priority_color: "success" }
+      // { id: 4, title: "Cook", deadline: "Today"},
+      // { id: 5, title: "Boil Water", deadline: "Today"}
     ]
   });
 
   const [ formState, setFormState ] = useState({
     title: "",
     description: "",
-    deadline: ""
+    deadline: "",
+    priority: "",
+    priority_color: ""
   });
 
   const doneHandler = (taskIndex) => {
@@ -49,6 +51,15 @@ function App() {
           break;
       case "deadline":
           form.deadline = event.target.value;
+          break;
+      case "priority":
+          form.priority = event.target.value;
+          switch(event.target.value) {
+            case "High": form.priority_color = "error"; break;
+            case "Medium": form.priority_color = "warning"; break;
+            case "Low": form.priority_color = "success"; break;
+            default: break;
+          }
           break;
       default:
           form = formState;
@@ -98,6 +109,8 @@ function App() {
                 deadline={task.deadline}
                 done={task.done}
                 key={task.id}
+                priority={task.priority}
+                priority_color={task.priority_color}
                 markDone = {() => doneHandler(index)}
                 deleteTask = {() => deleteHandler(index)}
               />
